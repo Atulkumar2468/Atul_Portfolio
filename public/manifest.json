@@ -1,0 +1,22 @@
+{
+  "name": "Atul Kumar | Software Engineer Portfolio",
+  "short_name": "Atul Kumar",
+  "description": "Portfolio of Atul Kumar — Aspiring Software Engineer specializing in Python, Java, Django",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

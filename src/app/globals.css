@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+/* ─── Obsidian Engineering Design System ──────────────────── */
+
+@theme inline {
+  /* ── Typography ──────────────────────────────────────── */
+  --font-geist: "Geist", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ── Colors: Dark Mode (Default) ─────────────────────── */
+  --color-background: #050505;
+  --color-foreground: #e5e2e1;
+  --color-surface: #131313;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #3a3939;
+  --color-surface-container: #201f1f;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-variant: #353534;
+
+  --color-primary: #adc6ff;
+  --color-primary-container: #4d8eff;
+  --color-on-primary: #002e6a;
+  --color-on-primary-container: #00285d;
+
+  --color-secondary: #d0bcff;
+  --color-secondary-container: #571bc1;
+  --color-on-secondary: #3c0091;
+
+  --color-tertiary: #4edea3;
+  --color-tertiary-container: #00a572;
+  --color-on-tertiary: #003824;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #c2c6d6;
+  --color-on-background: #e5e2e1;
+
+  --color-outline: #8c909f;
+  --color-outline-variant: #424754;
+
+  --color-error: #ffb4ab;
+  --color-error-container: #93000a;
+
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+
+  /* ── Light Mode Colors ──────────────────────────────── */
+  --color-light-background: #f8fafc;
+  --color-light-foreground: #111827;
+  --color-light-surface: #ffffff;
+  --color-light-surface-container: #f1f5f9;
+  --color-light-primary: #3b82f6;
+  --color-light-primary-container: #2563eb;
+  --color-light-on-primary: #ffffff;
+  --color-light-secondary: #8b5cf6;
+  --color-light-tertiary: #10b981;
+  --color-light-on-surface: #111827;
+  --color-light-on-surface-variant: #6b7280;
+  --color-light-outline: #d1d5db;
+
+  /* ── Spacing ─────────────────────────────────────────── */
+  --spacing-unit: 4px;
+  --spacing-gutter: 24px;
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 80px;
+
+  /* ── Border Radius ───────────────────────────────────── */
+  --radius-sm: 0.25rem;
+  --radius-DEFAULT: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+  --radius-full: 9999px;
+}
+
+/* ─── Global Styles ───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  overflow-x: hidden;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Light Mode Overrides ────────────────────────────────── */
+.light body,
+[data-theme="light"] body {
+  background-color: var(--color-light-background);
+  color: var(--color-light-foreground);
+}
+
+/* ─── Glass Card ──────────────────────────────────────────── */
+.glass-card {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(173, 198, 255, 0.4);
+}
+
+.light .glass-card,
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .glass-card:hover,
+[data-theme="light"] .glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* ─── Text Glow ───────────────────────────────────────────── */
+.text-glow {
+  text-shadow: 0 0 20px rgba(173, 198, 255, 0.5);
+}
+
+/* ─── Cursor Glow ─────────────────────────────────────────── */
+.cursor-glow {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(77, 142, 255, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #353534;
+}
+
+/* ─── Typing Cursor ───────────────────────────────────────── */
+.typing-cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+  color: var(--color-primary);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ─── Timeline Line ───────────────────────────────────────── */
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(173, 198, 255, 0.2),
+    transparent
+  );
+}
+
+/* ─── Project Card ────────────────────────────────────────── */
+.project-image-container {
+  overflow: hidden;
+}
+
+.project-image-container img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-image-container img {
+  transform: scale(1.05);
+}
+
+/* ─── Animated Gradient Background Blobs ──────────────────── */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* ─── Scroll Progress Bar ─────────────────────────────────── */
+.scroll-progress {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  height: 3px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* ─── Selection ───────────────────────────────────────────── */
+::selection {
+  background: rgba(77, 142, 255, 0.3);
+  color: var(--color-on-surface);
+}
+
+/* ─── Ping animation for availability badge ───────────────── */
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ─── Focus styles ────────────────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
