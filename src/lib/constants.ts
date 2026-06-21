@@ -190,23 +190,23 @@ export interface Education {
 
 export const EDUCATION: Education[] = [
   {
-    period: "2023-25",
+    period: "2025-27",
     degree: "Master of Computer Applications",
     institution: "MIT World Peace University, Pune",
     highlight: true,
   },
   {
-    period: "2020-23",
+    period: "2022-25",
     degree: "Bachelor of Computer Applications",
     institution: "Sarala Birla University",
   },
   {
-    period: "2018-20",
+    period: "2020-22",
     degree: "Intermediate (12th)",
     institution: "Loyola Inter College",
   },
   {
-    period: "2016-18",
+    period: "2019-20",
     degree: "Matriculation (10th)",
     institution: "DAV Public School",
   },
