@@ -148,7 +148,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Enter name"
                     required
                     value={formData.name}
                     onChange={(e) =>
@@ -164,7 +164,7 @@ export default function Contact() {
                   </label>
                   <input
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="Enter email"
                     required
                     value={formData.email}
                     onChange={(e) =>
@@ -181,7 +181,7 @@ export default function Contact() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Project inquiry"
+                  placeholder="Enter subject"
                   required
                   value={formData.subject}
                   onChange={(e) =>
@@ -196,7 +196,7 @@ export default function Contact() {
                   MESSAGE
                 </label>
                 <textarea
-                  placeholder="Tell me about your project..."
+                  placeholder="Enter your message..."
                   rows={4}
                   required
                   value={formData.message}
