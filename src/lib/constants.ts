@@ -11,9 +11,10 @@ export const PERSONAL = {
   resumeUrl: "/resume/Atul_Kumar_Resume.pdf",
   profileImage: "/images/profile.jpg",
   social: {
-    github: "https://github.com/atulkumar",
-    linkedin: "https://linkedin.com/in/atulkumar",
-    instagram: "https://instagram.com/atulkumar",
+    github: "https://github.com/Atulkumar2468",
+    linkedin: "https://www.linkedin.com/in/atul-kumar-a4b521295/",
+    instagram: "https://www.instagram.com/active_atul/",
+    whatsapp: "https://wa.me/917004125809",
     email: "mailto:atulindian2004@gmail.com",
   },
 } as const;

@@ -100,6 +100,28 @@ export default function Contact() {
                   </span>
                 </a>
                 <a
+                  href={PERSONAL.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"
+                  aria-label="Instagram"
+                >
+                  <span className="material-symbols-outlined">
+                    photo_camera
+                  </span>
+                </a>
+                <a
+                  href={PERSONAL.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <span className="material-symbols-outlined">
+                    chat
+                  </span>
+                </a>
+                <a
                   href={PERSONAL.social.email}
                   className="w-12 h-12 glass-card rounded-full flex items-center justify-center hover:text-[var(--color-primary)] transition-colors"
                   aria-label="Email"

@@ -17,7 +17,7 @@ export default function Footer() {
           Designed &amp; Developed by {PERSONAL.name} © 2026
         </p>
 
-        <div className="flex gap-8">
+        <div className="flex gap-8 flex-wrap justify-center">
           <a
             href={PERSONAL.social.linkedin}
             target="_blank"
@@ -33,6 +33,22 @@ export default function Footer() {
             className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors font-[family-name:var(--font-mono)] text-sm"
           >
             GitHub
+          </a>
+          <a
+            href={PERSONAL.social.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors font-[family-name:var(--font-mono)] text-sm"
+          >
+            Instagram
+          </a>
+          <a
+            href={PERSONAL.social.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-on-surface-variant)] hover:text-[var(--color-primary)] transition-colors font-[family-name:var(--font-mono)] text-sm"
+          >
+            WhatsApp
           </a>
           <a
             href={PERSONAL.social.email}
