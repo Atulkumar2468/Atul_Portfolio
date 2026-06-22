@@ -4,8 +4,6 @@ const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
 const CONTACT_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
 const BOOKING_TEMPLATE_ID =
   process.env.NEXT_PUBLIC_EMAILJS_BOOKING_TEMPLATE_ID || "";
-const CONFIRMATION_TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_CONFIRMATION_TEMPLATE_ID || "";
 const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
 export function initEmailJS() {
@@ -65,17 +63,6 @@ export async function sendBookingEmail(data: BookingFormData) {
     message: data.message,
     to_email: "atulindian2004@gmail.com",
   });
-
-  // Send confirmation to visitor
-  if (CONFIRMATION_TEMPLATE_ID) {
-    await emailjs.send(SERVICE_ID, CONFIRMATION_TEMPLATE_ID, {
-      to_name: data.fullName,
-      to_email: data.email,
-      date: data.date,
-      time_slot: data.timeSlot,
-      from_name: "Atul Kumar",
-    });
-  }
 
   // Save booking data locally
   const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
