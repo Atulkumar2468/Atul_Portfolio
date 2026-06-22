@@ -1,10 +1,10 @@
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-const CONTACT_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_zb6lv68";
+const CONTACT_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_pc2zqjz";
 const BOOKING_TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_BOOKING_TEMPLATE_ID || "";
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+  process.env.NEXT_PUBLIC_EMAILJS_BOOKING_TEMPLATE_ID || "template_yegu5ju";
+const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "_xrmYPcl7mLaVWEoK";
 
 export function initEmailJS() {
   if (PUBLIC_KEY) {
