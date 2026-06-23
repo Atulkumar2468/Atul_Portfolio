@@ -93,10 +93,45 @@ body {
 }
 
 /* ─── Light Mode Overrides ────────────────────────────────── */
-.light body,
-[data-theme="light"] body {
-  background-color: var(--color-light-background);
-  color: var(--color-light-foreground);
+/* Override ALL color variables when light class is applied */
+.light {
+  --color-background: #f8fafc;
+  --color-foreground: #111827;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-bright: #ffffff;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e2e8f0;
+
+  --color-primary: #2563eb;
+  --color-primary-container: #3b82f6;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #ffffff;
+
+  --color-secondary: #7c3aed;
+  --color-secondary-container: #8b5cf6;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #059669;
+  --color-tertiary-container: #10b981;
+  --color-on-tertiary: #ffffff;
+
+  --color-on-surface: #111827;
+  --color-on-surface-variant: #4b5563;
+  --color-on-background: #111827;
+
+  --color-outline: #9ca3af;
+  --color-outline-variant: #d1d5db;
+
+  --color-error: #dc2626;
+  --color-error-container: #fecaca;
+
+  --color-inverse-surface: #1f2937;
+  --color-inverse-on-surface: #f9fafb;
 }
 
 /* ─── Glass Card ──────────────────────────────────────────── */
@@ -112,15 +147,15 @@ body {
   border-color: rgba(173, 198, 255, 0.4);
 }
 
-.light .glass-card,
-[data-theme="light"] .glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.light .glass-card:hover,
-[data-theme="light"] .glass-card:hover {
-  border-color: rgba(59, 130, 246, 0.4);
+.light .glass-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
 }
 
 /* ─── Text Glow ───────────────────────────────────────────── */
@@ -270,4 +305,134 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+}
+
+/* ─── Light Mode: Global Overrides ────────────────────────── */
+/* Fix all hardcoded dark-mode colors for light theme */
+
+/* Text glow → subtle blue shadow */
+.light .text-glow {
+  text-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+}
+
+/* Cursor glow → lighter */
+.light .cursor-glow {
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+/* Scrollbar */
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Timeline */
+.light .timeline-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(37, 99, 235, 0.15),
+    transparent
+  );
+}
+
+/* Selection */
+.light ::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: #111827;
+}
+
+/* ── White opacity backgrounds → dark opacity backgrounds ── */
+.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .hover\:bg-white\/5:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.light .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* ── White opacity borders → dark opacity borders ────────── */
+.light .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .hover\:border-white\/10:hover {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ── White opacity text → dark opacity text ──────────────── */
+.light .text-white {
+  color: #111827 !important;
+}
+
+.light .text-white\/30 {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.light .text-white\/50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.light .text-white\/70 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* ── Form inputs in light mode ───────────────────────────── */
+.light input,
+.light textarea,
+.light select {
+  color: #111827;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* ── Footer border ───────────────────────────────────────── */
+.light footer {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Navbar in light mode ────────────────────────────────── */
+.light nav {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Theme toggle button light mode ──────────────────────── */
+.light #theme-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light #theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Certification modal ─────────────────────────────────── */
+.light .fixed.inset-0 {
+  background: rgba(0, 0, 0, 0.3);
 }
