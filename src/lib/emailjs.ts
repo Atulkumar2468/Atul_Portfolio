@@ -31,6 +31,15 @@ export interface BookingFormData {
 }
 
 export async function sendContactEmail(data: ContactFormData) {
+  // Save to Supabase first (independent of EmailJS)
+  try {
+    await saveContactSubmission(data);
+    console.log("Contact saved to Supabase");
+  } catch (err) {
+    console.error("Supabase save failed:", err);
+  }
+
+  // Send email via EmailJS
   if (!PUBLIC_KEY || !SERVICE_ID || !CONTACT_TEMPLATE_ID) {
     console.warn("EmailJS not configured. Simulating send...");
     return { status: 200, text: "OK (simulated)" };
@@ -44,19 +53,24 @@ export async function sendContactEmail(data: ContactFormData) {
     to_email: "atulindian2004@gmail.com",
   });
 
-  // Save to Supabase
-  await saveContactSubmission(data);
-
   return result;
 }
 
 export async function sendBookingEmail(data: BookingFormData) {
+  // Save to Supabase first (independent of EmailJS)
+  try {
+    await saveBookingSubmission(data);
+    console.log("Booking saved to Supabase");
+  } catch (err) {
+    console.error("Supabase save failed:", err);
+  }
+
+  // Send email via EmailJS
   if (!PUBLIC_KEY || !SERVICE_ID || !BOOKING_TEMPLATE_ID) {
     console.warn("EmailJS not configured. Simulating send...");
     return { status: 200, text: "OK (simulated)" };
   }
 
-  // Send booking details to owner
   const ownerResult = await emailjs.send(SERVICE_ID, BOOKING_TEMPLATE_ID, {
     full_name: data.fullName,
     email: data.email,
@@ -67,9 +81,6 @@ export async function sendBookingEmail(data: BookingFormData) {
     message: data.message,
     to_email: "atulindian2004@gmail.com",
   });
-
-  // Save to Supabase
-  await saveBookingSubmission(data);
 
   return ownerResult;
 }

@@ -12,7 +12,9 @@ export async function saveContactSubmission(data: {
   subject: string;
   message: string;
 }) {
-  const { error } = await supabase.from("submissions").insert({
+  console.log("Saving contact to Supabase...", data);
+
+  const { data: result, error } = await supabase.from("submissions").insert({
     type: "contact",
     name: data.name,
     email: data.email,
@@ -21,8 +23,12 @@ export async function saveContactSubmission(data: {
   });
 
   if (error) {
-    console.error("Supabase insert error:", error);
+    console.error("Supabase contact insert error:", error.message, error);
+    throw error;
   }
+
+  console.log("Contact saved successfully:", result);
+  return result;
 }
 
 // Save booking form submission
@@ -35,7 +41,9 @@ export async function saveBookingSubmission(data: {
   purpose: string;
   message: string;
 }) {
-  const { error } = await supabase.from("submissions").insert({
+  console.log("Saving booking to Supabase...", data);
+
+  const { data: result, error } = await supabase.from("submissions").insert({
     type: "booking",
     name: data.fullName,
     email: data.email,
@@ -48,6 +56,10 @@ export async function saveBookingSubmission(data: {
   });
 
   if (error) {
-    console.error("Supabase insert error:", error);
+    console.error("Supabase booking insert error:", error.message, error);
+    throw error;
   }
+
+  console.log("Booking saved successfully:", result);
+  return result;
 }
