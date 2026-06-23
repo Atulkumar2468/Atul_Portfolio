@@ -1,4 +1,5 @@
 import emailjs from "@emailjs/browser";
+import { saveContactSubmission, saveBookingSubmission } from "./supabase";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_zb6lv68";
 const CONTACT_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_pc2zqjz";
@@ -43,6 +44,9 @@ export async function sendContactEmail(data: ContactFormData) {
     to_email: "atulindian2004@gmail.com",
   });
 
+  // Save to Supabase
+  await saveContactSubmission(data);
+
   return result;
 }
 
@@ -64,10 +68,8 @@ export async function sendBookingEmail(data: BookingFormData) {
     to_email: "atulindian2004@gmail.com",
   });
 
-  // Save booking data locally
-  const bookings = JSON.parse(localStorage.getItem("bookings") || "[]");
-  bookings.push({ ...data, createdAt: new Date().toISOString() });
-  localStorage.setItem("bookings", JSON.stringify(bookings));
+  // Save to Supabase
+  await saveBookingSubmission(data);
 
   return ownerResult;
 }
